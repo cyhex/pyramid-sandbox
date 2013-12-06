@@ -1,7 +1,7 @@
 from pyramid.config import Configurator
-from xtest.views import IndexController
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
+from xtest.routes import add_routes
 
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
@@ -15,8 +15,6 @@ def main(global_config, **settings):
     config.set_authorization_policy(authz_policy)
 
     config.include("pyramid_handlers")
-    config.add_handler('index', '/', handler=IndexController, action='index')
-    config.add_handler('data', '/data/{x:.*}', handler=IndexController, action='data')
-    config.add_handler('default', '/{action}', handler=IndexController)
+    config.include(add_routes)
     config.scan()
     return config.make_wsgi_app()
