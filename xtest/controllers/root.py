@@ -3,6 +3,8 @@ __author__ = 'gx'
 from pyramid.response import Response
 from pyramid_handlers import action
 from xtest.controllers import BaseController
+from formencode import validators
+from xtest.lib.decorators import validate
 
 class RootController(BaseController):
 
@@ -52,3 +54,9 @@ class RootController(BaseController):
     def cust_header(self):
         self.request.response.status_code = 201
         return {'ok':1}
+
+
+    @action(renderer='json')
+    @validate(validators={'i': validators.Int(), 's': validators.String(strip=True), 'f': validators.Bool()})
+    def validate(self, i, s, f):
+        return [i,s,f]

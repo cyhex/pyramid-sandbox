@@ -10,6 +10,7 @@ def add_routes(config):
 
     # add root controller
     config.add_handler('index', '/', handler='xtest.controllers.root.RootController', action='index')
-    config.add_handler('data', '/data/{x:.*}', handler='xtest.controllers.root.RootController', action='data')
+    config.add_handler('data', '/data/{x}', handler='xtest.controllers.root.RootController', action='data')
     config.add_handler('varible', '/varible.{ext}', handler='xtest.controllers.root.RootController', action='varible')
-    config.add_handler('default', '/{action}', handler='xtest.controllers.root.RootController')
+    config.add_handler('validate', '/validate/{i}/{s}/{f}', handler='xtest.controllers.root.RootController',  action='validate')
+    config.add_handler('root', '/{action}', handler='xtest.controllers.root.RootController')

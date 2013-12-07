@@ -14,6 +14,7 @@ requires = [
     'pyramid_debugtoolbar',
     'pyramid_handlers',
     'waitress',
+    'formencode'
     ]
 
 setup(name='xtest',
