@@ -11,10 +11,11 @@ def main(global_config, **settings):
     authz_policy = ACLAuthorizationPolicy()
 
     config = Configurator(settings=settings)
+
     config.set_authentication_policy(authn_policy)
     config.set_authorization_policy(authz_policy)
-
     config.include("pyramid_handlers")
+    config.include('pyramid_chameleon')
     config.include(add_routes)
     config.scan()
     return config.make_wsgi_app()

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<h2>D var</h2>
+<pre>
+${d}
+</pre>
+</body>
+</html>
