@@ -57,6 +57,8 @@ class RootController(BaseController):
 
 
     @action(renderer='json')
-    @validate(validators={'i': validators.Int(), 's': validators.String(strip=True), 'f': validators.Bool()})
+    @validate(validators={'i': validators.Int(), 's': validators.String(strip=True), 'f': validators.Email()})
     def validate(self, i, s, f):
-        return [i,s,f]
+
+        return [i, s, f]
+
